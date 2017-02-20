@@ -194,7 +194,7 @@ controller：
 　　
 # **三、如何优化秒杀操作**
 ## **第一个方案：**
-![这里写图片描述](http://img.blog.csdn.net/20170220145107017?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamVmZmxlbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170220183045084?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamVmZmxlbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 　　首先，可以用NoSQL例如redis作为一个原子计数器，记录商品的库存，当用户秒杀该商品时，该计数器便减1；
 　　然后记录哪个用户秒杀了该商品，作为一个消息，存储到分布式mq中（例如alibaba的rocketMQ）；
 　　最后由服务端的服务去执行数据库的update操作。
